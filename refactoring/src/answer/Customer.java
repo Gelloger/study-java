@@ -28,7 +28,7 @@ public class Customer {
             double thisAmount = 0;
             Rental each = (Rental)rentals.nextElement();
 
-            thisAmount = getAmountFor(each);
+            thisAmount = each.getCharge();
             frequentRenterPoints++;
 
             if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) && each.getDaysRented() > 1) {
@@ -42,9 +42,5 @@ public class Customer {
         result += "적립 포인트: " + String.valueOf(frequentRenterPoints);
         return result;
 
-    }
-
-    private double getAmountFor(Rental rental) {
-        return rental.getCharge();
     }
 }
